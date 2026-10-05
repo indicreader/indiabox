@@ -11,24 +11,24 @@ import android.content.Context
 @CloudstreamPlugin
 class ExampleProviderPlugin : Plugin() {
     override fun load(context: Context) {
-        registerMainAPI(NewProvider())
+        registerMainAPI(FilmyflyProvider())
     }
 }
 
-class NewProvider : MainAPI() {
-    override var mainUrl = "https://new.katmoviehd.top"
-    override var name = "New"
+class FilmyflyProvider : MainAPI() {
+    override var mainUrl = "https://filmyfly.army"
+    override var name = "Filmyfly"
     override var lang = "en"
     override val hasMainPage = true
     override val supportedTypes = setOf(TvType.Movie, TvType.TvSeries)
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         val testItem = newMovieSearchResponse(
-            name = "Home",
+            name = "Filmyfly Official Site - South Hindi And Bollywood On filmyfly.army",
             url = "$mainUrl/",
             type = TvType.Movie
         ) {
-            this.posterUrl = ""
+            this.posterUrl = "https://img.iwebp.store/images/files/afaa901b76bc48d57a346319423035dd384208.png"
         }
         return newHomePageResponse(HomePageList("Latest", listOf(testItem)))
     }
@@ -36,23 +36,23 @@ class NewProvider : MainAPI() {
     override suspend fun search(query: String): List<SearchResponse> {
         return listOf(
             newMovieSearchResponse(
-                name = "Home",
+                name = "Filmyfly Official Site - South Hindi And Bollywood On filmyfly.army",
                 url = "$mainUrl/",
                 type = TvType.Movie
             ) {
-                this.posterUrl = ""
+                this.posterUrl = "https://img.iwebp.store/images/files/afaa901b76bc48d57a346319423035dd384208.png"
             }
         )
     }
 
     override suspend fun load(url: String): LoadResponse {
         return newMovieLoadResponse(
-            name = "Home",
+            name = "Filmyfly Official Site - South Hindi And Bollywood On filmyfly.army",
             url = url,
             type = TvType.Movie,
             dataUrl = url
         ) {
-            this.posterUrl = ""
+            this.posterUrl = "https://img.iwebp.store/images/files/afaa901b76bc48d57a346319423035dd384208.png"
             this.plot = "Extracted from $mainUrl"
         }
     }

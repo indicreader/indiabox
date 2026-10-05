@@ -11,21 +11,21 @@ import android.content.Context
 @CloudstreamPlugin
 class ExampleProviderPlugin : Plugin() {
     override fun load(context: Context) {
-        registerMainAPI(NewProvider())
+        registerMainAPI(MoviessdaProvider())
     }
 }
 
-class NewProvider : MainAPI() {
-    override var mainUrl = "https://new.katmoviehd.top"
-    override var name = "New"
+class MoviessdaProvider : MainAPI() {
+    override var mainUrl = "https://www.moviessda.com"
+    override var name = "Moviessda"
     override var lang = "en"
     override val hasMainPage = true
     override val supportedTypes = setOf(TvType.Movie, TvType.TvSeries)
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         val testItem = newMovieSearchResponse(
-            name = "Home",
-            url = "$mainUrl/",
+            name = "Tamilrockers | Tamilrockers 2026 Tamil Movies Download",
+            url = "$mainUrl/tamilrockers/",
             type = TvType.Movie
         ) {
             this.posterUrl = ""
@@ -36,8 +36,8 @@ class NewProvider : MainAPI() {
     override suspend fun search(query: String): List<SearchResponse> {
         return listOf(
             newMovieSearchResponse(
-                name = "Home",
-                url = "$mainUrl/",
+                name = "Tamilrockers | Tamilrockers 2026 Tamil Movies Download",
+                url = "$mainUrl/tamilrockers/",
                 type = TvType.Movie
             ) {
                 this.posterUrl = ""
@@ -47,7 +47,7 @@ class NewProvider : MainAPI() {
 
     override suspend fun load(url: String): LoadResponse {
         return newMovieLoadResponse(
-            name = "Home",
+            name = "Tamilrockers | Tamilrockers 2026 Tamil Movies Download",
             url = url,
             type = TvType.Movie,
             dataUrl = url

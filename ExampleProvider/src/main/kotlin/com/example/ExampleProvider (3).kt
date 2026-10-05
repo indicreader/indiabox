@@ -11,20 +11,20 @@ import android.content.Context
 @CloudstreamPlugin
 class ExampleProviderPlugin : Plugin() {
     override fun load(context: Context) {
-        registerMainAPI(NewProvider())
+        registerMainAPI(MymovieboxproappProvider())
     }
 }
 
-class NewProvider : MainAPI() {
-    override var mainUrl = "https://new.katmoviehd.top"
-    override var name = "New"
+class MymovieboxproappProvider : MainAPI() {
+    override var mainUrl = "https://mymovieboxproapp.com"
+    override var name = "Mymovieboxproapp"
     override var lang = "en"
     override val hasMainPage = true
     override val supportedTypes = setOf(TvType.Movie, TvType.TvSeries)
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
         val testItem = newMovieSearchResponse(
-            name = "Home",
+            name = "MovieBox APK Download For Android Free | Latest V4.0 2026",
             url = "$mainUrl/",
             type = TvType.Movie
         ) {
@@ -36,7 +36,7 @@ class NewProvider : MainAPI() {
     override suspend fun search(query: String): List<SearchResponse> {
         return listOf(
             newMovieSearchResponse(
-                name = "Home",
+                name = "MovieBox APK Download For Android Free | Latest V4.0 2026",
                 url = "$mainUrl/",
                 type = TvType.Movie
             ) {
@@ -47,7 +47,7 @@ class NewProvider : MainAPI() {
 
     override suspend fun load(url: String): LoadResponse {
         return newMovieLoadResponse(
-            name = "Home",
+            name = "MovieBox APK Download For Android Free | Latest V4.0 2026",
             url = url,
             type = TvType.Movie,
             dataUrl = url
